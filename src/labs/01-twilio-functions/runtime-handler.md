@@ -104,7 +104,7 @@ exports.handler = function(context, event, callback) {
 };
 ```
 
-最後に`exports.handler`の __スコープ外__ に追加した行の最後で呼び出されている`setUnauthorized`関数を実装します。このメソッドはリクエストを拒否するレスポンスの中身を作成しています。
+最後に`exports.handler`の最後で呼び出されている`setUnauthorized`関数を実装します。このメソッドはリクエストを拒否するレスポンスの中身を作成しています。`exports.handler`の __スコープ外__ に下記のコードを追加します。
 
 ```js
 // 401 Unauthorizedをレスポンスとして返すためのヘルパーメソッド
