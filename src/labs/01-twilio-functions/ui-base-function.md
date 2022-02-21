@@ -62,7 +62,7 @@ UIエディター下部の`Deploy All`　ボタンをクリックしデプロイ
 ![Function Unathorized](./images/browser-protected.png)
 
 UIからFunctionを作成した場合はVisibility（アクセスレベル）が`Protected`となっており、Twilio内部からのアクセスのみに応答します。これはTwilioからのリクエストヘッダーに含まれる、`X-Twilio-Signature`の値を検証することで判定しています。そのため、外部アプリケーションからProtected Functionにアクセスする場合は`X-Twilio-Signature`のキーを持つ署名をリクエストに追加する必要があります。
-どのように署名の作成しているかについては下記のトピックをご覧ください。
+どのように署名を作成しているかについては下記のトピックをご覧ください。
 
 - [セキュリティ](https://jp.twilio.com/docs/usage/security)
 
@@ -78,7 +78,7 @@ Pathタイルに表示されている`Protected`をクリックするとVisibili
 
 ## Private Functionの追加
 
-Visibilityを`Private`とした場合は、他のFunctions、あるいはAssetsからのみアクセスが可能です。このため、複数のFunctionで利用する共通ロジックや秘匿性が高いデータそのもののをPrivate Function、Private Assetとして定義、アップロードできます。
+Visibilityを`Private`とした場合は、他のFunction、あるいはAssetからのみアクセスが可能です。このため、複数のFunctionで利用する共通ロジックや秘匿性が高いデータそのもののをPrivate Function、Private Assetとして定義、アップロードできます。
 
 UIエディターから次のFunctionを追加してください。
 

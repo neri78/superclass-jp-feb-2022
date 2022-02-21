@@ -35,16 +35,16 @@ exports.handler = function(context, event, callback) {
 };
 ```
 
-このfunctionに渡される`event`オブジェクトを用いてリクエスト情報にアクセスできます。
+この関数に渡される`event`オブジェクトを用いてリクエスト情報にアクセスできます。
 
 ### Authorizationヘッダーを使い、基本認証を実施
 
-今回は下記で紹介されているサンプルについて日本語の手順を確認しながら実装します。
+ここからは下記で紹介されているサンプルについて日本語の手順を確認しながら実装します。
 
 - [Protect your Function with Basic Auth](https://www.twilio.com/docs/runtime/quickstart/basic-auth)
 
 リクエスト情報にアクセスする場合は`event.request`を使用します。
-今回はその中でもヘッダー情報にアクセスするため、`event.request.headers`を用いて基本認証機能を実装します。
+その中でもヘッダー情報にアクセスできる`event.request.headers`を用いて基本認証機能を実装します。
 
 最初にハイライトされたコードを追加します。このコードでは、`event.request.headers.authorization`でリクエストに含まれるAuthorizationヘッダーを取得しています。
 

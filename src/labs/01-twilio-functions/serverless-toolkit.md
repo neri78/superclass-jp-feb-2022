@@ -1,7 +1,7 @@
 # Serverless Toolkitの使用
 
-Twilio Functionsは[Twilio CLI](https://www.twilio.com/ja/docs/twilio-cli/quickstart)および[Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit/getting-started#install-the-twilio-serverless-toolkit)を導入し、ローカル環境で開発する方法を提供しています。
-このハンズオンでは __Serverless Toolkit__ を用いた __Envrionmentへのデプロイ方法__ について重点的に学習します。事前に下記の環境が揃っていることを確認してください。
+Twilio Functionsは[Twilio CLI](https://www.twilio.com/ja/docs/twilio-cli/quickstart)および[Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit/getting-started#install-the-twilio-serverless-toolkit)を用いてローカル環境で開発する方法を提供しています。
+このハンズオンでは __Serverless Toolkit__ を用いた __複数のEnvrionmentへのデプロイ方法__ について重点的に学習します。事前に下記の環境が揃っていることを確認してください。
 
 - バージョン12.21以降の[Node.js](https://nodejs.org/ja/)
 - Twilio CLIの[インストール](https://www.twilio.com/ja/docs/twilio-cli/quickstart)（[Twilioアカウントへのログイン](https://www.twilio.com/ja/docs/twilio-cli/quickstart#twilio%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%B8%E3%81%AE%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3)までを事前に済ませてください）
@@ -82,7 +82,8 @@ Environment:
 Build SID:
    ZB*****************************
 View Live Logs:
-   https://www.twilio.com/console/assets/api/ZS*****************************/environment/ZE*****************************
+   https://www.twilio.com/console/assets/api/
+      ZS*****************************/environment/ZE*****************************
 Functions:
    [protected] https://*****-dev.twil.io/my-new-function/hello-world
    https://*****-dev.twil.io/never-gonna-give-you-up
@@ -90,11 +91,7 @@ Assets:
 
 ```
 
-デプロイの際に`package.json`の`name`に設定された名前`Service`が作成され、`dev`という名前がつけられた`Environment`が作成されます。デプロイ時に使用できるオプションについては下記のコマンドで確認できます。
-
-```bash
-twilio serverless:deploy --help
-```
+デプロイの際に`package.json`の`name`に設定された値をもとに`Service`が作成されます。特に環境名を指定しない場合、このServiceに`dev`という名前がついた`Environment`も併せて作成されます。デプロイ時に使用できるオプションについては`twilio serverless:deploy --help`コマンドで確認できます。
 
 一旦デプロイを行うとプロジェクトフォルダの`.twiliodeployinfo`ファイルに各種情報が保存されます。
 
@@ -128,20 +125,19 @@ twilio api:serverless:v1:services:update --sid <servideSidの値> --no-ui-editab
 ```
 
 ::: tip
-コンソールでの制御が不許可になっている場合は、Serviceの削除をCLIから実行しなければいけません。その場合は次のコマンドを使用します。
-
+Twilioコンソールでの制御が不許可になっている場合は、Serviceの削除をUI上から実行できません。ターミナルから次のコマンドを使用します。  
 `twilio api:serverless:v1:services:remove --sid <servideSidの値>`
 :::
 ::: warning
-APIからサービスを削除した場合は`.twiliodeployinfo`ファイルの情報をクリアする必要があります。そのままにしておくと、再度デプロイを実行した際にサービスが存在しないというエラーが発生します。
+上記コマンでサービスを削除した場合は`.twiliodeployinfo`ファイルの情報をクリアする必要があります。そのままにしておくと、再度デプロイを実行した際にサービスが存在しないというエラーが発生します。
 :::
 
 ## 複数の環境にデプロイ
 
-標準では`dev`というEnvironmentが作成されますが、複数の環境を作成できます。その場合は`twilio serverless:promoate`コマンドを実行します。今回のハンズオンでは、ステージング用のEnvironmentである`staging`を作成します。下記のオプションをそれぞれ指定します。
+標準では`dev`というEnvironmentが作成されます。別のEnvironmentを作成する場合は`twilio serverless:promoate`コマンドを実行します。今回のハンズオンでは、ステージング用のEnvironmentである`staging`を作成します。指定するオプションについては下記を確認してください。
 
 |オプション名|説明|設定値|
-|---|---|---|
+|---|---|------|
 | --service-sid| 対象となるServiceのSID| 先ほどのデプロイ時に表示された値|
 | --source-environment または --from | 複製元となるEnvironmentの名前またはEnvironment SID| dev|
 | --environment または --to | 複製先のEnviromentの名前またはEnvironment SID| staging|
@@ -164,8 +160,7 @@ https://serverless-handson-****-staging.twil.io/never-gonna-give-you-up
 
 ![serverless - protected](./images/serveless-protected.png)
 
-この状態をエラーだと仮定し、修正を行います。`/functions/never-gonna-give-you-up.protected.js`のファイル名を`never-gonna-give-you-up.js`と変更し、`dev`環境にデプロイしてください。
-
+この状態をエラーだと仮定し、修正しましょう。`/functions/never-gonna-give-you-up.protected.js`のファイル名を`never-gonna-give-you-up.js`と変更し、`dev`環境にデプロイします。
 デプロイ後、下記のURL情報を参考に`dev`のURLをブラウザーで開き、TwiMLが返されることを確認します。
 
 ```
