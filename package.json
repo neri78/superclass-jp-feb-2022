@@ -1,0 +1,23 @@
+{
+  "name": "superclass-jp-feb-2022",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "/superclass-jp-feb-2022",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "textlint": "^12.1.0",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
+    "vuepress": "^1.5.3"
+  }
+}
