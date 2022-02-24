@@ -253,7 +253,7 @@ exports.handler = function(context, event, callback) {
 
 Twilio Clientを利用する場合はクライアント側のアプリケーションを実装する必要があります。今回は時間を短縮するため、あらかじめ実装済みのアプリケーションを使用します。下記のフォルダからアセット一式を取得してください。
 
-- [ブラウザーフォンクライアント側ファイル一式](../../../assets/browser-phone.zip)
+- [ブラウザーフォンクライアント側ファイル一式](https://github.com/neri78/superclass-jp-feb-2022/raw/main/assets/browser-phone.zip)
 
 ダウンロードしたファイルを解凍し、Twilio FunctionsのUIエディターから`Add +` - `Upload File`を選択します。4つのファイルを全て選択し、Visibilityを`Public`と設定します。下記のスクリーンショットを参考にしてください。
 
