@@ -27,23 +27,23 @@ Twilio Frontlineを使用する場合は、アイデンティティプロバイ�
 
 Oktaデベロッパーアカウントを保有していない場合は[こちら](https://developer.okta.com/)から作成します。作成後、ポータルにサインインします。
 
-ナビゲーションから、`Applications`を選択し、`Create App Integration`ボタンをクリックし、新しいアプリケーションを作成します。
+新しいアプリケーションを作成するため、ナビゲーションから、`Applications`を選択し、`Create App Integration`ボタンをクリックします。
 
-![Okta App]()
+![Okta App](./images/okta-create-app.png)
 
 Sign-in methodを選択する画面では`SAML 2.0`を選択し、`Next`ボタンをクリックします。
 
-![Sign in method]()
+![Sign in method](./images/okta-app-saml.png)
 
 続いてアプリケーションの名前を設定し、`Next`ボタンをクリックします。
 
-![App Name]()
+![App Name](./images/okta-app-name.png)
 
 SAML Sesstings画面では、`Singe sign on URL`並びに`Audience URI (SP Entity ID)`を指定する必要があります。
 
 ここで使用する情報を取得するため、別タブでTwilioコンソールのFrontlineを開き、`SSO/Log in`画面を表示します。この画面に表示される`Realm SID`を控えます。
 
-![Frontline - SSO - Realm]()
+![Frontline - SSO - Realm](./images/frontline-realm-sid.png)
 
 Oktaの設定画面に戻り、`Singe sign on URL`並びに`Audience URI (SP Entity ID)`をそれぞれ次のように設定します。
 
@@ -52,7 +52,7 @@ Oktaの設定画面に戻り、`Singe sign on URL`並びに`Audience URI (SP Ent
 | Singe sign on URL| https://iam.twilio.com/v2/saml2/authenticate/Realm SIDの値|
 | Audience URI (SP Entity ID)| https://iam.twilio.com/v2/saml2/metadata/Realm SIDの値|
 
-![Okta - SSO - URLs]()
+![Okta - SSO - URLs](./images/okta-sso-urls.png)
 
 
 ## 属性を定義
@@ -64,7 +64,7 @@ Oktaの設定画面に戻り、`Singe sign on URL`並びに`Audience URI (SP Ent
 | email| Basic | user.email|
 | roles| Basic| user.userType|
 
-![Okta - SSO - attributes]()
+![Okta - SSO - attributes](./images/okta-sso-attributes.png)
 
 `Next`ボタンをクリックし次に進みます。
 
@@ -75,38 +75,46 @@ Oktaの設定画面に戻り、`Singe sign on URL`並びに`Audience URI (SP Ent
 
 ## Setup Instructionsをコピー
 
-アプリケーションの設定画面へと遷移した状態で、画面に表示されているSAML 2.0のSetup Instructionsを表示し、次の値を全て控えておきます。
+アプリケーションの設定画面へと遷移した状態で、画面に表示されているSAML 2.0のSetup Instructionsを表示します。
+
+![okta - app settings](./images/okta-sso-setup-instructions.png)
+
+表示される画面で確認できる次の値を全て控えておきます。
 
 - Identity Provider Single Sign-On URL:
 - Identity Provider Issuer:
 - X.509 Certificate:
 
-![okta - app settings]()
+![okta - app settings details](./images/okta-sso-instructions-details.png)
+
 
 ## ユーザーの設定 - User typeを定義
 
 ナビゲーションから`Directory` - `People`を選択し、Twilio Frontlineの使用ユーザーとなるユーザーの詳細情報を開きます。
 
-![okta - direcotry]()
+![okta - direcotry](./images/okta-people.png)
 
-`Profile`タブをクリックし、プロファイルを修正します。`User type`に`agent`と入力し、`Save`ボタンをクリックします。
+`Profile`タブをクリックし、プロファイルを修正します。
 
-![okta - people - profile]()
-![okta - people - user type]()
+![okta - people - profile](./images/okta-people-profile-tab.png)
+
+`User type`に`agent`と入力し、`Save`ボタンをクリックします。
+
+![okta - people - user type](./images/okta-people-usertype.png)
 
 ## ユーザーの設定 - アプリケーションに割り当て
 
 `Applications`タブを開き、`Assign Applications`ボタンをクリックします。
 
-![okta - people - app]()
+![okta - people - app](./images/okta-people-assign-app.png)
 
 一覧から先ほど作成したアプリケーションを割り当てます。
 
-![okta - people - app - assign]()
+![okta - people - app - assign](./images/okta-people-app-list.png)
 
 割り当てが完了すると`Assigned Applications`の一覧に表示されます。
 
-![okta - people - assigned app]()
+![okta - people - assigned app](./images/okta-people-assigned-apps.png)
 
 ## FrontlineのSSO設定を完了
 
@@ -121,6 +129,6 @@ Oktaの設定画面に戻り、`Singe sign on URL`並びに`Audience URI (SP Ent
 
 下記のスクリーンショットも参考にしてください。
 
-![okta - people - assigned app]()
+![okta - people - assigned app](./images/frontline-sso-workspace.png)
 
 これでSSOの設定が完了しました。

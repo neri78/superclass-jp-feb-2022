@@ -7,11 +7,11 @@ Twilio Functionsは[Twilio CLI](https://www.twilio.com/ja/docs/twilio-cli/quicks
 - Twilio CLIの[インストール](https://www.twilio.com/ja/docs/twilio-cli/quickstart)（[Twilioアカウントへのログイン](https://www.twilio.com/ja/docs/twilio-cli/quickstart#twilio%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%B8%E3%81%AE%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3)までを事前に済ませてください）
 - Twilio Serverless Toolkitの[インストール](https://www.twilio.com/docs/labs/serverless-toolkit/getting-started#install-the-twilio-serverless-toolkit)
 
-::: tip
+::: tip 情報
 過去にインストールしたプラグインをアップデートする場合は、`twilio plugins:update`コマンドを実行します。
 :::
 
-::: warning
+::: warning 注意
 すでにCLIをインストールしている場合は、今回のハンズオン用Twilioアカウントの資格情報をCLIで利用しているかどうかを確認してください。新たにプロファイルを作成する場合は、`twilio profiles:create`コマンドを使用し、作成したプロファイルを`twilio profiles:use`コマンドで指定します。
 :::
 
@@ -45,7 +45,7 @@ exports.handler = function(context, event, callback) {
 };
 ```
 
-::: tip
+::: tip 情報
 Serverless Toolkitを使用する場合は、Visibilityをファイル名で指定します。`Protected`の場合は、`aaaa.protected.js`、`Public`の場合は、`aaaa.privated.js`と名前をつけてください。
 :::
 
@@ -124,11 +124,12 @@ twilio api:serverless:v1:services:update --sid <servideSidの値> --ui-editable
 twilio api:serverless:v1:services:update --sid <servideSidの値> --no-ui-editable
 ```
 
-::: tip
+::: tip 情報
 Twilioコンソールでの制御が不許可になっている場合は、Serviceの削除をUI上から実行できません。ターミナルから次のコマンドを使用します。  
 `twilio api:serverless:v1:services:remove --sid <servideSidの値>`
 :::
-::: warning
+
+::: warning 注意
 上記コマンでサービスを削除した場合は`.twiliodeployinfo`ファイルの情報をクリアする必要があります。そのままにしておくと、再度デプロイを実行した際にサービスが存在しないというエラーが発生します。
 :::
 

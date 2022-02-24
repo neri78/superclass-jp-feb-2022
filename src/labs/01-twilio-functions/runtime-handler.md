@@ -2,7 +2,7 @@
 
 このセクションではTwilio Functionsの実行時に利用される[`Runtime Handler`](https://www.twilio.com/docs/runtime/handler)を用いてFunctionへのリクエストヘッダーやクッキーにアクセスする方法を学習します。
 
-::: warning
+::: warning 注意
 リクエストヘッダーやクッキーにアクセスする場合は、Runtime Handlerのバージョンを1.2.0以降とする必要があります。2022年2月時点において新規でServiceを作成した場合は、バージョン1.2.1が自動的に使用されます。
 :::
 

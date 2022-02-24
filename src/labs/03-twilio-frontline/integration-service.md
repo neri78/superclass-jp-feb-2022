@@ -55,7 +55,7 @@ Frontlineコンソールに戻り、`Callbacks`画面を開きます。下記の
 | CRM Callback URL| ngrokのURL`/callbacks/crm` |
 | CRM Callback URL| ngrokのURL`/callbacks/outgoing-conversation` |
 
-![frontline - callbacks]()
+![frontline - callbacks](./images/frontline-integration-urls.png)
 
 これでテキストメッセージが使えるようになりました。
 
@@ -63,9 +63,11 @@ Frontlineコンソールに戻り、`Callbacks`画面を開きます。下記の
 
 初期状態では音声通話が無効化されているため、`Voice Calling`画面を開き、有効化します。この際、Frontlineで使用するTwilio番号の設定において着信時にFrontline用のTwiML Appが処理を行うように定義する必要があります。
 
+![Voice calling](./images/frontline-voice-calling.png)
+
 今回はSMSの受信、発信に利用しているTwilio番号に設定します。電話番号の設定画面において`CONFIGURE WITH`に`TwiML App`と指定し、`TWIML APP`には自動的に構築された`Voice in Frontline`を指定します。下記のスクリーンショットを参考にしてください。
 
-![Voice settings]()
+![Voice settings](./images/phone-number-twiml-app.png)
 
 ## Twilio Frontlineをインストールし、テストを実施
 
@@ -73,19 +75,19 @@ Frontlineコンソールに戻り、`Callbacks`画面を開きます。下記の
 
 起動時に`workspace ID`を求められます。先ほど設定した値を入力します。
 
-![frontline - workspace ID]()
+![frontline - workspace ID](./images/frontline-app-workspace-id.jpg)
 
 次に設定したアイデンティティプロバイダーのサインイン画面が表示されます。
 
-![frontline - SSO]()
+![frontline - SSO](./images/frontline-app-sso.jpg)
 
 サインインが完了すると会話の一覧画面が表示されます。`My Customers`タブを開いて先ほど定義したテスト顧客が表示されていることを確認してください。
 
-![frontline - customers]()
+![frontline - customers](./images/frontline-app-customers.jpg)
 
 テスト顧客をタップすると詳細情報が表示されます。VoiceまたはSMSをタップし、実際にメッセージが送信されること、あるいは通話ができることを確認します。
 
-![Frontline - customer details]()
+![Frontline - customer details](./images/frontline-app-customer-detail.jpg)
 
 
 
