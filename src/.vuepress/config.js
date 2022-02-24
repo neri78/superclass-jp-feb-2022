@@ -18,7 +18,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#0263E0' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
@@ -35,41 +35,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
-      }
     ],
-    // sidebar: 'auto'
-    // sidebar: [
-    //   {
-    //     title: 'Group 1',   // required
-    //     path: '/labs/01-twilio-functions/',      // optional, link of the title, which should be an absolute path and must exist
-    //     sidebarDepth: 10,    // optional, defaults to 1
-    //     children: [
-    //       '/labs/01-twilio-functions/2',
-    //       '/3'
-    //     ]
-    //   },
-    //   {
-    //     title: 'Group 2',
-    //     path: '/labs/02-anonymous-calls/',      // optional, link of the title, which should be an absolute path and must exist
-    //     collapsable: true, // optional, defaults to true
-    //     sidebarDepth: 1,    // optional, defaults to 1
-    //     children: [
-    //       '',
-    //       '1'
-    //     ]
-    //   }
-    // ]
     sidebar: [
       {
       title: "Twilio Functionsの活用",
