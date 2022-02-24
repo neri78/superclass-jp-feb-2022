@@ -84,18 +84,21 @@ module.exports = {
       {
         title: "匿名通話の実現",
         collapsable: true,
-        path: '/labs/02-anonymous-calls/', 
         children: [
           '/labs/02-anonymous-calls/',
+          '/labs/02-anonymous-calls/twilio-proxy',
+          '/labs/02-anonymous-calls/twilio-client'
         ],
         displayAllHeaders: true
       },
       {
         title: "Twilio Frontlineの体験",
         collapsable: true,
-        path: '/labs/03-twilio-frontline/', 
         children: [
           '/labs/03-twilio-frontline/',
+          '/labs/03-twilio-frontline/twilio-frontline',
+          '/labs/03-twilio-frontline/sso',
+          '/labs/03-twilio-frontline/integration-service'
         ],
         displayAllHeaders: true
       }

@@ -66,6 +66,7 @@ exports.handler = function(context, event, callback) {
 };
 ```
 
+
 Authorizationヘッダーを取得できた場合は、認証方式と認証情報を確認します。下記のハイライトされている行を追加します。
 
 ```js{15-32}
